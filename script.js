@@ -1,21 +1,4 @@
-const todoItems = [
-  {
-    message: 'Bacon',
-    done: false
-  },
-  {
-    message: 'Eggs',
-    done: false
-  },
-  {
-    message: 'Cheese',
-    done: true
-  },
-  {
-    message: 'Chocolate',
-    done: true
-  }
-]
+const todoItems = []
 
 // Kiválasztás
 const todoItemsElement = document.querySelector('.js-todo-items')
@@ -42,13 +25,37 @@ function createTodoItem(text, isDone) {
 
 
 
-for (
-  let i = 0;
-  i < todoItems.length;
-  i++
-) {
-  const todo = createTodoItem(todoItems[i].message, false)
-  // Elemek beillesztése a DOM-ba
-  todoItemsElement.appendChild(todo)
+function renderTodoItems () {
+  todoItemsElement.innerHTML = ''
+  for (
+    let i = 0;
+    i < todoItems.length;
+    i++
+  ) {
+    const todo = createTodoItem(todoItems[i].message, todoItems[i].done)
+    // Elemek beillesztése a DOM-ba
+    todoItemsElement.appendChild(todo)
+  }
 }
 
+const addButton = document.querySelector(".js-add-button")  ;
+const todoInput = document.querySelector('.js-todo-input')
+
+
+function addTodo (text) {
+  todoItems.push({
+    message: text,
+    done: false
+  })
+
+  renderTodoItems()
+}
+
+function handleButtonClick () {
+  const todoContent = todoInput.value
+  todoInput.value = ''
+  todoInput.focus()
+  addTodo(todoContent)
+}
+
+addButton.addEventListener('click', handleButtonClick)

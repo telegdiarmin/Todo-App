@@ -56,3 +56,37 @@ const todoItem = document.createElement('div') // <div></div>
 todoItem.innerHTML = 'kutya' // <div>kutya</div>
 
 todoItemsElement.appendChild(todoItem)
+
+
+
+const peter = {
+  name: 'Peter',
+  age: 29,
+  title: 'JavaScript Developer',
+  isSenior: true,
+  appliances: {
+    phones: [
+      {
+        name: 'iPhone 12',
+        isCurrent: true
+      },
+      {
+        name: 'OnePlus 5',
+        isCurrent: false
+      }
+    ],
+    computer: 'MacBook Pro 15"'
+  }
+}
+
+const family = {
+  children: ['Hanna Sára', 'Dóra', 'Dániel']
+  wife: 'Flóra'
+}
+
+peter.family = family
+
+function hasPhoneEqualAsChild (person) {
+  return person.appliances.phones.lenght === person.family.children.lenght ;
+}
+
