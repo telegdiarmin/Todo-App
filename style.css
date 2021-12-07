@@ -1,0 +1,20 @@
+.mainBackground{
+    border-radius: 10px; 
+    background-color:lightsteelblue; 
+    padding: 20px; 
+    margin-top: 20px    
+}
+.mainBottomBar{
+    display: flex; 
+    justify-content: flex-end;
+}
+.itemBackground{
+    display: flex;
+    background-color: lightsteelblue;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.js-remove-button{
+    margin-left: auto;
+}

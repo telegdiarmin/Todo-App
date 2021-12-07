@@ -80,7 +80,7 @@ const peter = {
 }
 
 const family = {
-  children: ['Hanna Sára', 'Dóra', 'Dániel']
+  children: ['Hanna Sára', 'Dóra', 'Dániel'],
   wife: 'Flóra'
 }
 
