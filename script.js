@@ -19,37 +19,13 @@ const todoItemsElement = document.querySelector(".js-todo-items");
 
 //Új item létrehozás
 function createTodoItem(text, isDone) {
-  const todoItem = document.createElement("div"); // <div></div>
-  todoItem.classList.add("itemBackground");
-
-  //Checkbox
-  const checkboxItem = document.createElement("input");
-  checkboxItem.setAttribute("type", "checkbox");
-  checkboxItem.classList.add("js-done-checkbox");
-  checkboxItem.checked = isDone;
-  todoItem.appendChild(checkboxItem);
-
-  //Span
-  const spanItem = document.createElement("span");
-  spanItem.innerText = text;
-  spanItem.classList.add("todo-text")
-  if (isDone === true) {
-    spanItem.classList.add("todo-text-done")
-  };
-  todoItem.appendChild(spanItem);
-
-  //Törlés gomb
-  const buttonItem = document.createElement("button");
-  buttonItem.innerText = "Remove";
-  buttonItem.classList.add(
-    "js-remove-button",
-    "btn",
-    "btn-danger",
-    "remove-button"
-  );
-  todoItem.appendChild(buttonItem);
-
-  return todoItem;
+  const container = document.createElement("div")
+  container.classList.add("itemBackground")
+  container.innerHTML = `
+    <input type="checkbox" class="js-done-checkbox" ${isDone ? "checked" : ""}>
+    <span class="todo-text ${isDone ? "todo-text-done" : ""}">${text}</span>
+    <button class="js-remove-button btn btn-danger remove-button">Remove</button>`;
+  return container
 }
 
 //Elemek létrehozása
