@@ -25,6 +25,8 @@ function createTodoItem(text, isDone) {
   //Checkbox
   const checkboxItem = document.createElement("input");
   checkboxItem.setAttribute("type", "checkbox");
+  checkboxItem.classList.add("js-done-checkbox");
+  checkboxItem.checked = isDone;
   todoItem.appendChild(checkboxItem);
 
   //Span
@@ -55,7 +57,10 @@ function renderTodoItems() {
     todoRemoveButton.addEventListener("click", function () {
       handleRemoveButtonClick(i);
     }); //51-56 sorok: ciklusmag
-
+    const todoCheckbox = todo.querySelector(".js-done-checkbox");
+    todoCheckbox.addEventListener("change", function () {
+      handleChangeDoneCheckbox(i);
+    });
     // Elemek beillesztése a DOM-ba
     todoItemsElement.appendChild(todo);
   }
@@ -92,10 +97,19 @@ function handleAddButtonClick() {
   }
 }
 
-function handleRemoveButtonClick(index) {
-  todoItems.splice(index, 1);
+function renderAndSave() {
   renderTodoItems();
   saveTodoItems(todoItems);
+}
+
+function handleRemoveButtonClick(index) {
+  todoItems.splice(index, 1);
+  renderAndSave();
+}
+
+function handleChangeDoneCheckbox(index) {
+  todoItems[index].done = !todoItems[index].done;
+  renderAndSave();
 }
 
 readTodoItems();
