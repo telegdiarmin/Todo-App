@@ -12,9 +12,18 @@
   display: flex;
   background-color: lightsteelblue;
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 20px;
+  align-items: center;
 }
-.js-remove-button {
+.remove-button {
   margin-left: auto;
+}
+
+.todo-text-done {
+  text-decoration: line-through;
+}
+
+.todo-text {
+  margin: 0 20px;
 }

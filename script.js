@@ -32,13 +32,21 @@ function createTodoItem(text, isDone) {
   //Span
   const spanItem = document.createElement("span");
   spanItem.innerText = text;
+  spanItem.classList.add("todo-text")
+  if (isDone === true) {
+    spanItem.classList.add("todo-text-done")
+  };
   todoItem.appendChild(spanItem);
 
   //Törlés gomb
   const buttonItem = document.createElement("button");
   buttonItem.innerText = "Remove";
-  buttonItem.classList = "btn btn-primary";
-  buttonItem.classList.add("js-remove-button");
+  buttonItem.classList.add(
+    "js-remove-button",
+    "btn",
+    "btn-danger",
+    "remove-button"
+  );
   todoItem.appendChild(buttonItem);
 
   return todoItem;
