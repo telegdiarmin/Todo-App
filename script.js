@@ -80,10 +80,10 @@ function addTodo(text) {
 function handleAddButtonClick() {
   if (todoInput.value.trim() === "") {
     //leading és tailing whitespace karakterek eltávolítása (space, tab, stb...)
-    const myAlert = document.querySelectorAll("toast");
-    const bsAlert = new bootstrap.Toast(myAlert);
-    bsAlert.show();
-    return;
+    // const myAlert = document.querySelectorAll("toast");
+    // const bsAlert = new bootstrap.Toast(myAlert);
+    // bsAlert.show();
+    // return;
   } else {
     const todoContent = todoInput.value;
     todoInput.value = "";
