@@ -47,9 +47,9 @@ function renderTodoItems() {
     todoCheckbox.addEventListener("change", function () {
       handleChangeDoneCheckbox(i);
     });
-    const todoInput = todo.querySelector(".js-todo-input");
-    todoInput.addEventListener("change", function () {
-      handleChangeText(index, message);
+    const todoItemInput = todo.querySelector(".js-todo-input");
+    todoItemInput.addEventListener("change", function (event) {
+      handleChangeText(i, event.target.value);
     });
     // Elemek beillesztése a DOM-ba
     todoItemsElement.appendChild(todo);
@@ -103,7 +103,8 @@ function handleChangeDoneCheckbox(index) {
 }
 
 function handleChangeText(index, message) {
-  
+  todoItems[index].message = message;
+  renderAndSave();
 }
 
 readTodoItems();
