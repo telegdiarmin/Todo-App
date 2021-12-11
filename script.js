@@ -19,13 +19,15 @@ const todoItemsElement = document.querySelector(".js-todo-items");
 
 //Új item létrehozás
 function createTodoItem(text, isDone) {
-  const container = document.createElement("div")
-  container.classList.add("itemBackground")
+  const container = document.createElement("div");
+  container.classList.add("itemBackground", "shadow");
   container.innerHTML = `
     <input type="checkbox" class="js-done-checkbox" ${isDone ? "checked" : ""}>
-    <span class="todo-text ${isDone ? "todo-text-done" : ""}">${text}</span>
+    <input type="text" class="js-todo-input todo-text ${
+      isDone ? "todo-text-done" : ""
+    }" value="${text}">
     <button class="js-remove-button btn btn-danger remove-button">Remove</button>`;
-  return container
+  return container;
 }
 
 //Elemek létrehozása
@@ -44,6 +46,10 @@ function renderTodoItems() {
     const todoCheckbox = todo.querySelector(".js-done-checkbox");
     todoCheckbox.addEventListener("change", function () {
       handleChangeDoneCheckbox(i);
+    });
+    const todoInput = todo.querySelector(".js-todo-input");
+    todoInput.addEventListener("change", function () {
+      handleChangeText(index, message);
     });
     // Elemek beillesztése a DOM-ba
     todoItemsElement.appendChild(todo);
@@ -94,6 +100,10 @@ function handleRemoveButtonClick(index) {
 function handleChangeDoneCheckbox(index) {
   todoItems[index].done = !todoItems[index].done;
   renderAndSave();
+}
+
+function handleChangeText(index, message) {
+  
 }
 
 readTodoItems();
